@@ -1,0 +1,19 @@
+{
+  "name": "devconnector",
+  "version": "1.0.0",
+  "description": "A social media platform for webn developers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anmolmalik97/devconnector.git"
+  },
+  "author": "Anmol Malik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anmolmalik97/devconnector/issues"
+  },
+  "homepage": "https://github.com/anmolmalik97/devconnector#readme"
+}
