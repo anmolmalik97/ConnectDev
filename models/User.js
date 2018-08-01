@@ -13,6 +13,8 @@ var UserSchema = new schema({
 	password: {
 		type: String,
 		required: true
+	},avatar: {
+		type: String
 	},
 	date: {
 		type: Date,
