@@ -3,14 +3,22 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {logoutUser} from '../../actions/authActions';
+import {clearCurrentProfile} from '../../actions/profileActions';
 
 class Navbar extends Component {
+	
+	logout = (event) => {
+		event.preventDefault();
+		this.props.clearProfile();
+		this.props.onLogout();
+
+	}
 	render() {
 		const {isAuthenticated,user} = this.props.auth;
 		const authLinks = (
 				<ul className="navbar-nav ml-auto">
 	          		<li className="nav-item">
-	            		<a href = "" className="nav-link" onClick = {this.props.onLogout}>
+	            		<a href = "" className="nav-link" onClick = {this.logout}>
 	            			<img className = 'rounded-circle'src={user.avatar} alt={user.name} style={{width: '25px',marginRight: '5px'}} title = 'you must have a gravatar connected to your email to display an image'/>
 	            			Logout
 	            		</a>
@@ -58,7 +66,8 @@ Navbar.propTypes = {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onLogout: () => dispatch(logoutUser())
+		onLogout: () => dispatch(logoutUser()),
+		clearProfile: () => dispatch(clearCurrentProfile())
 	}
 }
 
