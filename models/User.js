@@ -14,9 +14,6 @@ var UserSchema = new schema({
 		type: String,
 		required: true
 	},
-	avatar: {
-		type: String
-	},
 	date: {
 		type: Date,
 		default: Date.now
