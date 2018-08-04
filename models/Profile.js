@@ -54,7 +54,7 @@ const profileSchema = new schema({
 			to: {
 				type: Date
 			},
-			Current: {
+			current: {
 				type: Boolean,
 				default: false
 			},
@@ -84,7 +84,7 @@ const profileSchema = new schema({
 			to: {
 				type: Date
 			},
-			Current: {
+			current: {
 				type: Boolean,
 				default: false
 			},

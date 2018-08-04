@@ -8,7 +8,13 @@ import jwt_decode from 'jwt-decode'
 export const registerUser = (userData,history) => {
 	return dispatch => {
 		axios.post('/api/users/register',userData)
-			.then(res => history.push('/login'))
+			.then(res => {
+				history.push('/login');
+				dispatch({
+					type: actionTypes.GET_ERRORS,
+					payload: {}
+				})
+				})
 			.catch(err => dispatch({
 				type: actionTypes.GET_ERRORS,
 				payload: err.response.data
@@ -31,6 +37,10 @@ export const loginUser = (userData) => {
 				const decoded = jwt_decode(token);
 				// set current user
 				dispatch(setCurrentUser(decoded));
+				dispatch({
+				type: actionTypes.GET_ERRORS,
+				payload: {}
+			})
 			})
 			.catch(err => dispatch({
 				type: actionTypes.GET_ERRORS,
