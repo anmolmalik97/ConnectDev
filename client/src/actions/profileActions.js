@@ -26,7 +26,13 @@ export const setProfileLoading = () => {
 // create profile
 export const createProfile = (profileData,history) =>dispatch => {
 	axios.post('/api/profile',profileData)
-		.then(res => history.push('dashboard'))
+		.then(res => {
+			history.push('dashboard')
+			dispatch({
+					type: actionTypes.GET_ERRORS,
+					payload: {}
+				})
+		})
 		.catch(err=> dispatch({
 			type: actionTypes.GET_ERRORS,
 			payload: err.response.data
@@ -38,6 +44,72 @@ export const clearCurrentProfile = () => {
 	return {
 		type: actionTypes.CLEAR_CURRENT_PROFILE
 	}
+}
+
+// add exp
+
+export const addExperience = (expData,history) => dispatch => {
+	axios.post('api/profile/experience',expData)
+		.then(res => {
+			history.push('/dashboard')
+			dispatch({
+					type: actionTypes.GET_ERRORS,
+					payload: {}
+				})
+		})
+		.catch(err => dispatch({
+			type: actionTypes.GET_ERRORS,
+			payload: err.response.data
+		}))
+}
+
+//  add exp
+
+export const addEducation = (eduData,history) => dispatch => {
+	axios.post('api/profile/education',eduData)
+		.then(res => {
+			history.push('/dashboard')
+			dispatch({
+					type: actionTypes.GET_ERRORS,
+					payload: {}
+				})
+		})
+		.catch(err => dispatch({
+			type: actionTypes.GET_ERRORS,
+			payload: err.response.data
+		}))
+}
+
+// del exp
+
+export const deleteExperience = (id) => dispatch => {
+	axios.delete(`api/profile/experience/${id}`)
+		.then(res => {
+			dispatch({
+					type: actionTypes.GET_PROFILE,
+					payload: res.data
+				})
+		})
+		.catch(err => dispatch({
+			type: actionTypes.GET_ERRORS,
+			payload: err.response.data
+		}))
+}
+
+// del education
+
+export const deleteEducation = (id) => dispatch => {
+	axios.delete(`api/profile/education/${id}`)
+		.then(res => {
+			dispatch({
+					type: actionTypes.GET_PROFILE,
+					payload: res.data
+				})
+		})
+		.catch(err => dispatch({
+			type: actionTypes.GET_ERRORS,
+			payload: err.response.data
+		}))
 }
 
 // delete account and profile
@@ -55,4 +127,5 @@ export const deleteAccount = () => dispatch => {
 			}))
 	}
 }
+
 
