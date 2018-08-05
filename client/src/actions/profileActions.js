@@ -112,6 +112,23 @@ export const deleteEducation = (id) => dispatch => {
 		}))
 }
 
+// get all profiles
+
+export const getProfiles = () => dispatch => {
+	dispatch(setProfileLoading());
+	axios.get('api/profile/all')
+		.then(res => {
+			dispatch({
+					type: actionTypes.GET_PROFILES,
+					payload: res.data
+				})
+		})
+		.catch(err => dispatch({
+			type: actionTypes.GET_PROFILES,
+			payload: null
+		}))
+}
+
 // delete account and profile
 
 export const deleteAccount = () => dispatch => {
