@@ -49,7 +49,7 @@ class Navbar extends Component {
 			      	<div className="collapse navbar-collapse" id="mobile-nav">
 				        <ul className="navbar-nav mr-auto">
 				        	<li className="nav-item">
-				            	<NavLink className="nav-link" to="#"> Developers
+				            	<NavLink className="nav-link" to="/profiles"> Developers
 				            	</NavLink>
 				          	</li>
 				        </ul>
@@ -80,4 +80,4 @@ const mapStatetoProps = state => {
 	}
 }
 
-export default connect(mapStatetoProps,mapDispatchToProps)(Navbar);
+export default connect(mapStatetoProps,mapDispatchToProps,null,{pure: false})(Navbar);
