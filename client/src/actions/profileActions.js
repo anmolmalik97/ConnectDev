@@ -16,6 +16,22 @@ export const getCurrentProfile = () => dispatch => {
 		}))
 }
 
+// get profile by handle
+
+export const getProfileByHandle = handle => dispatch => {
+	dispatch(setProfileLoading());
+	axios.get(`/api/profile/handle/${handle}`)
+		.then(res => dispatch({
+			type: actionTypes.GET_PROFILE,
+			payload: res.data
+		}))
+		.catch(err => dispatch({
+			type: actionTypes.GET_PROFILE,
+			payload: null
+		}))
+}
+
+
 // profile loading
 export const setProfileLoading = () => {
 	return {
@@ -128,6 +144,8 @@ export const getProfiles = () => dispatch => {
 			payload: null
 		}))
 }
+
+
 
 // delete account and profile
 

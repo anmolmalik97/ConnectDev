@@ -117,7 +117,7 @@ router.post('/',passport.authenticate('jwt',{session: false}),(req,res) => {
 	 if(req.body.location)  profileFields.location = req.body.location;
 	 if(req.body.bio)  profileFields.bio = req.body.bio;
 	 if(req.body.status)  profileFields.status = req.body.status;
-	 if(req.body.githubuser)  profileFields.githubuser = req.body.githubuser;
+	 if(req.body.githubusername)  profileFields.githubusername = req.body.githubusername;
 	 // skills - split it into array
 	 if(typeof req.body.skills !== 'undefined'){
 	 	profileFields.skills = req.body.skills.split(',')
