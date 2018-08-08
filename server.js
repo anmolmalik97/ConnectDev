@@ -45,7 +45,7 @@ if(process.env.NODE_ENV === 'production'){
 	})
 }
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.listen(port,() => {
 	console.log("server started at " + port);
