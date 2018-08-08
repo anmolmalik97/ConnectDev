@@ -24,7 +24,8 @@ export default function(state=initialState,action){
 		case actionTypes.GET_POST:
 			return{
 				...state,
-				post: action.payload
+				post: action.payload,
+				loading: false
 			}
 		case actionTypes.GET_POSTS:
 			return{
@@ -36,7 +37,7 @@ export default function(state=initialState,action){
 		case actionTypes.DELETE_POST:
 			return{
 				...state,
-				posts: state.posts.filter(post => post._id!=action.payload)
+				posts: state.posts.filter(post => post._id!==action.payload)
 			}
 		default:
 			return state;

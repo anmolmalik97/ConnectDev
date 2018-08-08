@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
