@@ -17,7 +17,7 @@ class CommentItem extends Component {
           <div className="col-md-2">
             <a href="profile.html">
               <img
-                className="rounded-circle d-sm-block"
+                className="rounded-circle"
                 src={comment.avatar}
                 alt=""
               />
