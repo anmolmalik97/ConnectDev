@@ -56,6 +56,7 @@ class App extends Component {
               <Route exact path = '/login' component = {Login}/>
               <Route exact path = '/profiles' component = {Profiles}/>
               <Route exact path = '/profile/:handle' component = {Profile}/>
+              <Route exact path = '/not-found' component = {NotFound}/>
               <Switch>
                 <PrivateRoute exact path = '/dashboard' component = {Dashboard}/>
               </Switch>
@@ -71,8 +72,6 @@ class App extends Component {
                <Switch>
                 <PrivateRoute exact path = '/add-education' component = {AddEducation}/>
               </Switch>
-              <Route exact path = '/not-found' component = {NotFound}/>
-              <Redirect to = '/not-found'/>
             </div>
             <Footer/>
           </div>
