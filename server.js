@@ -15,6 +15,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json())
 
+
 //db config
 
 const db = require('./config/keys').mongoURI;
@@ -38,6 +39,9 @@ app.use('/api/posts',posts);
 
 // serve static assests if in production
 if(process.env.NODE_ENV === 'production'){
+	var sslRedirect = require(‘heroku-ssl-redirect’);
+	app.use(sslRedirect());
+
 	// set static folder
 	app.use(express.static('client/build'));
 	app.get('*',(req,res) => {

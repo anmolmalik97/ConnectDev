@@ -27,6 +27,7 @@
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
     "gravatar": "^1.6.0",
+    "heroku-ssl-redirect": "0.0.4",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.5",
     "passport": "^0.4.0",
