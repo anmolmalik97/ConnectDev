@@ -1,6 +1,6 @@
 # ConnectDev
 
-> A Social media platform built for developers with NodeJs(api) and Reactjs
+> A Social media platform built for developers built with NodeJs(api) and Reactjs
 
 
 ## Live Demo
@@ -12,41 +12,27 @@ To see this app in action,Go here [https://connectdevs.herokuapp.com/](https://c
 * Authentication
   
   
-  * User signup with username password and email
-  
-  * User login with facebook
- 
-  * Admin login also available by presetted user name and password 
- 
+  * Developer signup with username password and email
+  * input errors validation is handled
+
 * Authorisation
 
-  * Email verification is necessary for login
-  
-  * No one can order without login
-  
-  * only admin can go to admin panel
-  
-* basic functionalities
+  * Only authorised Developers can manage their profile
+  * Post feed is available to authenticated Developers only
  
-  * Test payment by stripe gateway
   
-  * Cart will be stored according to user
-  
-  * Flash messages responding to users' interaction with the app
-  
-  * Manage orders from profile
-  
-  * coupon system for discounts
+* Post feed
  
-* Admin panel
-
-  * Add,remove and edit items
+  * Developers can post on the feed
   
-  * Add,remove admins
+  * Developers can like/unlike the post
   
-  * Manage orders
+  * Developers can comment on the post
   
-  * create,remove and edit discount vouchers
+* Developers section
+  
+  * Any authenticated/unauthenticated user can see developer's profile
+ 
   
 ## Getting Started
 
@@ -55,7 +41,7 @@ To see this app in action,Go here [https://connectdevs.herokuapp.com/](https://c
 ### Clone or download this repository
 
 ```sh
-git clone https://github.com/anmolmalik97/fooddeliveryWebApp
+git clone https://github.com/anmolmalik97/ConnectDev
 ```
 
 ### Install dependencies
@@ -73,25 +59,20 @@ yarn install
 
 ### Front-end
 
-* [ejs](http://ejs.co/)
+* [react js](https://reactjs.org/)
 * [Bootstrap](http://getbootstrap.com/docs/4.1/getting-started/introduction/)
+
 
 ### Back-end
 
 * [express](https://expressjs.com/)
 * [mongoDB](https://www.mongodb.com/)
 * [mongoose](http://mongoosejs.com/)
-* [async](http://caolan.github.io/async/)
-* [crypto](https://nodejs.org/api/crypto.html#crypto_crypto)
 * [passport](http://www.passportjs.org/)
-* [passport-local](https://github.com/jaredhanson/passport-local#passport-local)
+* [passport-jwt](https://www.npmjs.com/package/passport-jwt)
 * [express-session](https://github.com/expressjs/session#express-session)
-* [method-override](https://github.com/expressjs/method-override#method-override)
-* [nodemailer](https://nodemailer.com/about/)
-* [cloudinary](https://cloudinary.com/)
-* [connect-flash](https://github.com/jaredhanson/connect-flash#connect-flash)
+* [validator](https://github.com/chriso/validator.js/)
+
 
 ### Platforms
-
-* [Cloudinary](https://cloudinary.com/)
 * [Heroku](https://www.heroku.com/)
