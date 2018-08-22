@@ -8,6 +8,7 @@ const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 const passport = require('passport');
+var sslRedirect = require(‘heroku-ssl-redirect’);
 
 const app = express();
 
@@ -31,6 +32,8 @@ mongoose.connect(db,{ useNewUrlParser: true })
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
+// ssl
+app.use(sslRedirect());
 // use routes
 
 app.use('/api/users',users);
@@ -39,9 +42,7 @@ app.use('/api/posts',posts);
 
 // serve static assests if in production
 if(process.env.NODE_ENV === 'production'){
-	var sslRedirect = require(‘heroku-ssl-redirect’);
-	app.use(sslRedirect());
-
+	
 	// set static folder
 	app.use(express.static('client/build'));
 	app.get('*',(req,res) => {
