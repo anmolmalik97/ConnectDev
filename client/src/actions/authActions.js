@@ -1,24 +1,30 @@
 import * as actionTypes from './types';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
+import {uiStartLoading,uiStopLoading} from './ui';
 
 
 // register user
 export const registerUser = (userData,history) => {
 	return dispatch => {
+		dispatch(uiStartLoading());
 		axios.post('/api/users/register',userData)
 			.then(res => {
+				dispatch(uiStopLoading());
 				history.push('/login');
 				dispatch({
 					type: actionTypes.GET_ERRORS,
 					payload: {}
 				})
 				})
-			.catch(err => dispatch({
-				type: actionTypes.GET_ERRORS,
-				payload: err.response.data
-			}))
+			.catch(err => {
+				dispatch(uiStopLoading());
+				dispatch({
+					type: actionTypes.GET_ERRORS,
+					payload: err.response.data
+				})
+			})
 	}
 }
 
@@ -26,9 +32,11 @@ export const registerUser = (userData,history) => {
 
 export const loginUser = (userData) => {
 	return dispatch => {
+		dispatch(uiStartLoading());
 		axios.post('api/users/login',userData)
 			.then(res => {
 				// save to localstorage
+				dispatch(uiStopLoading());
 				const {token} = res.data;
 				localStorage.setItem('jwtToken',token);
 				//set token to auth header
@@ -42,10 +50,13 @@ export const loginUser = (userData) => {
 				payload: {}
 			})
 			})
-			.catch(err => dispatch({
-				type: actionTypes.GET_ERRORS,
-				payload: err.response.data
-			}))
+			.catch(err => {
+				dispatch(uiStopLoading());
+				dispatch({
+					type: actionTypes.GET_ERRORS,
+					payload: err.response.data
+				})
+			})
 	}
 };
 

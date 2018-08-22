@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as actionTypes from '../../../actions/authActions';
 import TextFieldGroup from '../../common/TextFieldGroup';
+import Spinner from '../../common/Spinner';
 
 class Register extends Component {
 	state = {
@@ -39,8 +40,8 @@ class Register extends Component {
 	}
 	render() {
 		const {errors} = this.state;
-		return (
-			<div>
+		let content = (
+				<div>
 				<div className="register">
 				    <div className="container">
 		        		<div className="row">
@@ -85,7 +86,11 @@ class Register extends Component {
 				    </div>
 				</div>
 			</div>
-		);
+			);
+		if(this.props.isLoading)
+			content = <Spinner/>
+		
+		return content;
 	}
 }
 
@@ -98,7 +103,8 @@ Register.propTypes = {
 const mapStateToProps = state => {
 	return {
 		auth: state.auth,
-		errors: state.errors
+		errors: state.errors,
+		isLoading: state.ui.isLoading
 	}
 }
 

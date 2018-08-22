@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions/authActions';
 import TextFieldGroup from '../../common/TextFieldGroup';
+import Spinner from '../../common/Spinner';
 
 class Login extends Component {
 	
@@ -39,8 +40,8 @@ class Login extends Component {
 
 	render() {
 		const {errors} = this.state; 
-		return (
-			<div className="login">
+		let content = (
+				<div className="login">
     			<div className="container">
       				<div className="row">
         				<div className="col-md-8 m-auto">
@@ -67,7 +68,10 @@ class Login extends Component {
       				</div>
     			</div>
   			</div>
-		);
+			);
+		if(this.props.isLoading)
+			content = <Spinner/>
+		return content;
 	}
 }
 
@@ -80,7 +84,8 @@ Login.propTypes = {
 const mapStateToProps = state => {
 	return {
 		auth: state.auth,
-		errors: state.errors
+		errors: state.errors,
+		isLoading: state.ui.isLoading
 	}
 }
 
