@@ -72,6 +72,7 @@ yarn install
 * [passport-jwt](https://www.npmjs.com/package/passport-jwt)
 * [express-session](https://github.com/expressjs/session#express-session)
 * [validator](https://github.com/chriso/validator.js/)
+* [concurrently](https://github.com/kimmobrunfeldt/concurrently)
 
 
 ### Platforms
